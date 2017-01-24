@@ -1,14 +1,30 @@
 <html>
   <title>Dice Roller</title>
-  <head>
-    <script>
+	<head>
 
-    </script>
-  </head>
+  <link rel="stylesheet" type="text/css" href="assets/dice.css">
+  <link rel="shortcut icon" href="assets/dice.ico" type="image/x-icon">
+	</head>
   <body>
-    How many dice do you want to roll?<input type="text"id="numDice"></br>
-    <button type="button" id="roller">Roll Dice</button>
-    
+
+    <br><br>
+    <section id="rollDice">
+      <h1>How many dice do you want to roll?</h1><br>
+      <input type="text"id="numDice"></br><br>
+      <button type="button" id="roller">Roll Dice</button><br><br>
+    </section>
+
+    <article id="rollResults" style="display:none;">
+      <h2>Roll Results:</h2>
+      <table id="rollTable" align="center">
+
+		  <table> 
+        <br>
+
+
+	</article>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="assets/roller.js"></script>
   </body>
 
 </html>
