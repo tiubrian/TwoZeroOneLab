@@ -1,0 +1,50 @@
+body {
+    background: url("http://www.psdgraphics.com/wp-content/uploads/2015/07/casino-pattern.jpg");
+    background-size:     cover;                      /* <------ */
+    background-repeat:   no-repeat;
+    background-position: center center;  
+}
+
+h1, h2 {
+    color: white;
+}
+
+#loading {
+    background: url("http://cliparts.co/cliparts/8TE/b9o/8TEb9oxGc.gif")
+        50% 10%
+        no-repeat;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 50px;
+    text-align: center;
+    padding-top: 357px;
+}
+
+#dicesRolling {
+    position:block;
+    width: 400px;
+    margin:auto;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 50%;
+}
+
+td, th {
+    border: 1px solid black;
+    text-align: left;
+    padding: 8px;
+}
+
+tr {
+    background-color: #dddddd;
+}
+
+#rollDice, #rollResults {
+    text-align: center;
+}
+
