@@ -1,7 +1,7 @@
 body {
     background: url("http://www.psdgraphics.com/wp-content/uploads/2015/07/casino-pattern.jpg");
-    background-size:     cover;                      /* <------ */
-    background-repeat:   no-repeat;
+    background-size:     100%;                      /* <------ */
+    background-repeat:   repeat-y;
     background-position: center center;  
 }
 
@@ -48,3 +48,8 @@ tr {
     text-align: center;
 }
 
+#skip {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+}
