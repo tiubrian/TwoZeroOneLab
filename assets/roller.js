@@ -11,6 +11,8 @@ function clear_timeouts() {
 }
 
 $(document).ready(function(){
+
+	//if they click on 'skip', go straight to the table
 	$(document).on('click', '#skip', function(){
 		$('#loading').remove();
 		$("#rollResults").show();
@@ -18,41 +20,46 @@ $(document).ready(function(){
 	});
 
 	$('#roller').click(function(){
-		$("#rollTable").empty();
-		$("#rollResults").hide();
-		var numDice = $('#numDice').val();
+		numDice = $('#numDice').val();
+		if (numDice > 0){
+			$("#rollTable").empty();
+			$("#rollResults").hide();
+			var numDice = numDice;
 
-		$("#rollTable").append(
-		  "<tr>" + 
-          "<th>Roll #</th>" + 
-          "<th>Amount</th>" + 
-          "</tr>"
-        );
+			$("#rollTable").append(
+			  "<tr>" + 
+	          "<th>Roll #</th>" + 
+	          "<th>Amount</th>" + 
+	          "</tr>"
+	        );
 
-		var loading_str = 
-		'<div id="loading"> ' +
-		'<h2 style="display:none;" id="roll_amount"></h2>' +
-		'<button type="button" id="skip">Skip to Results</button>' + 
-		'</div>';
+			var loading_str = 
+			'<div id="loading"> ' +
+			'<h2 style="display:none;" id="roll_amount"></h2>' +
+			'<button type="button" id="skip">Skip to Results</button>' + 
+			'</div>';
+					
+			$('body').append(loading_str);
+
+			totalRoll = 0;
+			for (i = 1; i <= numDice; i++){
+				var diceRoll = Math.floor((Math.random() * 6) + 1);
+				$("#rollTable").append('<tr><td>' + i + '</td><td>' + diceRoll + '</td></tr>')
+				totalRoll += diceRoll;
+				end = false;
+				if (i == numDice) {
+					end = true;
+					$("#rollTable").append(
+						"<tr><th>Total</th><th>" + totalRoll + "</th></tr>" + 
+						"<tr><th>Average</th><th>" + (totalRoll/numDice).toFixed(2) + "</th></tr>"
+						);
+				}
 				
-		$('body').append(loading_str);
+				display_roll(diceRoll, i, end);
+			};
 
-		totalRoll = 0;
-		for (i = 1; i <= numDice; i++){
-			var diceRoll = Math.floor((Math.random() * 6) + 1);
-			$("#rollTable").append('<tr><td>' + i + '</td><td>' + diceRoll + '</td></tr>')
-			totalRoll += diceRoll;
-			end = false;
-			if (i == numDice) {
-				end = true;
-				$("#rollTable").append(
-					"<tr><th>Total</th><th>" + totalRoll + "</th></tr>" + 
-					"<tr><th>Average</th><th>" + (totalRoll/numDice).toFixed(2) + "</th></tr>"
-					);
-			}
-			
-			display_roll(diceRoll, i, end);
-		};
+		}
+
 	});
 });
 
